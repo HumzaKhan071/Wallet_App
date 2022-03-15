@@ -1,4 +1,8 @@
+
 import 'package:flutter/material.dart';
+import 'package:wallet_app/Screens/QR%20Screen/first.dart';
+import 'package:wallet_app/Screens/QR%20Screen/second.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -8,6 +12,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
 class homePage extends StatefulWidget {
   @override
   _homePageState createState() => _homePageState();
@@ -32,28 +37,37 @@ class _homePageState extends State<homePage> {
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('asset/images/logo.png'),
-                        )
-                      ),
+                          image: DecorationImage(
+                        image: AssetImage('asset/images/logo.png'),
+                      )),
                     ),
-                    SizedBox(width: 5,),
-                    Text("eWalle", style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'ubuntu',
-                      fontSize: 25
-                    ),)
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      "eWalle",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'ubuntu',
+                          fontSize: 25),
+                    )
                   ],
                 )
               ],
             ),
-            SizedBox(height: 20,),
-            Text("Account Overview", style: TextStyle(
-              fontSize: 21,
-              fontWeight: FontWeight.w800,
-              fontFamily: 'avenir'
-            ),),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Account Overview",
+              style: TextStyle(
+                  fontSize: 21,
+                  fontWeight: FontWeight.w800,
+                  fontFamily: 'avenir'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Container(
               padding: EdgeInsets.all(30),
               decoration: BoxDecoration(
@@ -67,24 +81,26 @@ class _homePageState extends State<homePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("20,600",style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700
-                      ),),
-                      SizedBox(height: 5,),
-                      Text("Current Balance", style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400
-                      ),)
+                      Text(
+                        "20,600",
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.w700),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Current Balance",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w400),
+                      )
                     ],
                   ),
                   Container(
                     height: 60,
                     width: 60,
                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xffffac30)
-                    ),
+                        shape: BoxShape.circle, color: Color(0xffffac30)),
                     child: Icon(
                       Icons.add,
                       size: 30,
@@ -99,18 +115,24 @@ class _homePageState extends State<homePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Send Money", style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w800,
-                  fontFamily: 'avenir'
-                ),),
-                Container(
-                  height: 60,
-                  width: 60,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('asset/images/scanqr.png')
-                    )
+                Text(
+                  "Send Money",
+                  style: TextStyle(
+                      fontSize: 21,
+                      fontWeight: FontWeight.w800,
+                      fontFamily: 'avenir'),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => First()));
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 60,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('asset/images/scanqr.png'))),
                   ),
                 )
               ],
@@ -127,9 +149,15 @@ class _homePageState extends State<homePage> {
                       shape: BoxShape.circle,
                       color: Color(0xffffac30),
                     ),
-                    child: Icon(
-                      Icons.add,
-                      size: 40,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => Second()));
+                      },
+                      child: Icon(
+                        Icons.add,
+                        size: 40,
+                      ),
                     ),
                   ),
                   avatarWidget("avatar1", "Mike"),
@@ -138,15 +166,19 @@ class _homePageState extends State<homePage> {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Services', style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w800,
-                  fontFamily: 'avenir'
-                ),),
+                Text(
+                  'Services',
+                  style: TextStyle(
+                      fontSize: 21,
+                      fontWeight: FontWeight.w800,
+                      fontFamily: 'avenir'),
+                ),
                 Container(
                   height: 60,
                   width: 60,
@@ -155,7 +187,8 @@ class _homePageState extends State<homePage> {
               ],
             ),
             Expanded(
-              child:GridView.count(crossAxisCount: 4,
+              child: GridView.count(
+                crossAxisCount: 4,
                 childAspectRatio: 0.7,
                 children: [
                   serviceWidget("sendMoney", "Send\nMoney"),
@@ -174,13 +207,13 @@ class _homePageState extends State<homePage> {
       ),
     );
   }
-  Column serviceWidget(String img, String name)
-  {
+
+  Column serviceWidget(String img, String name) {
     return Column(
       children: [
         Expanded(
           child: InkWell(
-            onTap: (){},
+            onTap: () {},
             child: Container(
               margin: EdgeInsets.all(4),
               decoration: BoxDecoration(
@@ -191,33 +224,36 @@ class _homePageState extends State<homePage> {
                 child: Container(
                   margin: EdgeInsets.all(25),
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('asset/images/$img.png')
-                    )
-                  ),
+                      image: DecorationImage(
+                          image: AssetImage('asset/images/$img.png'))),
                 ),
               ),
             ),
           ),
         ),
-        SizedBox(height: 5,),
-        Text(name, style: TextStyle(
-          fontFamily: 'avenir',
-          fontSize: 14,
-        ),textAlign: TextAlign.center,)
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          name,
+          style: TextStyle(
+            fontFamily: 'avenir',
+            fontSize: 14,
+          ),
+          textAlign: TextAlign.center,
+        )
       ],
     );
   }
-  Container avatarWidget(String img, String name)
-  {
+
+  Container avatarWidget(String img, String name) {
     return Container(
       margin: EdgeInsets.only(right: 10),
       height: 150,
       width: 120,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        color: Color(0xfff1f3f6)
-      ),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          color: Color(0xfff1f3f6)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -225,26 +261,22 @@ class _homePageState extends State<homePage> {
             height: 60,
             width: 60,
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-              image: DecorationImage(
-                image: AssetImage('asset/images/$img.png'),
-                fit: BoxFit.contain
-              ),
-              border: Border.all(
-                color: Colors.black,
-                width: 2
-              )
-            ),
+                shape: BoxShape.circle,
+                color: Colors.white,
+                image: DecorationImage(
+                    image: AssetImage('asset/images/$img.png'),
+                    fit: BoxFit.contain),
+                border: Border.all(color: Colors.black, width: 2)),
           ),
-          Text(name, style: TextStyle(
-            fontSize: 16,
-            fontFamily: 'avenir',
-            fontWeight: FontWeight.w700
-          ),)
+          Text(
+            name,
+            style: TextStyle(
+                fontSize: 16,
+                fontFamily: 'avenir',
+                fontWeight: FontWeight.w700),
+          )
         ],
       ),
     );
   }
 }
-
